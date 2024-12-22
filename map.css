@@ -1,0 +1,29 @@
+body {
+  justify-content: center;
+  align-items: center;
+  padding-top: 2rem;
+  padding-bottom: 3rem;
+
+  margin: 0;
+  font-family: "Arial", sans-serif;
+}
+
+.form-group label {
+  font-weight: bold;
+  color: #333;
+}
+
+.btn {
+  padding: 0.5rem 2rem;
+  font-size: 1rem;
+  border-radius: 5px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.nav-item:hover {
+  border: 1px solid white;
+  border-radius: 5px;
+}

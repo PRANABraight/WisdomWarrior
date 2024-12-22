@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!--Font-Awesome-->
+    <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    rel="stylesheet"
+    />
+    <!-- TailwindCSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="input.css">
+
+    <!-- Favicon -->
+    <link rel="icon" href="images/Cheipa1.png">
+    <title>Profile - WisdomWarrior</title>
+</head>
+<body class="bg-blue-200 text-black">
+
+    <!-- Navigation Bar -->
+    <nav class="bg-blue-600 shadow-md text-white px-5">
+        <div class="container mx-auto flex items-center justify-between p-3">
+            <a href="index.html" class="flex items-center text-white">
+                <!-- SVG Logo -->
+                <div class="relative w-12 h-12">
+                    <iframe loading="lazy" class="absolute inset-0 w-full h-full border-none rounded-3xl" src="https://www.canva.com/design/DAGMZvUx5ZY/2AxAi0KOsSKmjHn_uq1ptw/view?embed"></iframe>
+                </div>
+                <div class="text-2xl font-bold ml-3">WisdomWarrior</div>
+            </a>
+            <!-- Navigation Links -->
+            <ul class="flex">
+                <li><a href="index.html" class="inline-block px-5 hover:border p-3 rounded-lg"><i class="fas fa-house"></i> Home</a></li>
+                <li><a href="aboutus.html" class="inline-block px-5 hover:border p-3 rounded-lg"><i class="fa-solid fa-address-card"></i></i> About</a></li>
+                
+                <li><a href="index.html" class="inline-block px-5 hover:border p-3 rounded-lg"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                <!-- <li><a href="profile.html" class="inline-block px-5 hover:border p-3 rounded-lg"><i class="fas fa-user"></i> Profile</a></li> -->
+
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Profile Section -->
+    <main class="container mx-auto p-6 bg-white rounded-lg shadow-lg mt-10">
+        <h2 class="text-3xl font-semibold text-blue-600 text-center mb-6">Your Profile</h2>
+        <div class="flex flex-wrap justify-center">
+            <!-- Profile Info -->
+            <div class="w-full md:w-1/3 bg-blue-50 p-5 rounded-lg shadow-md text-center">
+                <img src="images/profile.jpg" alt="Profile Picture" class="w-32 h-32 rounded-full mx-auto mb-4">
+                <h3 class="text-xl font-semibold">Shantanu Das</h3>
+                <p class="text-sm text-gray-600">shantanudas@example.com</p>
+                <button class="mt-4 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300">
+                    Edit Profile
+                </button>
+            </div>
+
+            <!-- Courses and Settings -->
+            <div class="w-full md:w-2/3 p-5">
+                <h3 class="text-xl font-semibold text-blue-600 mb-4">Your Courses</h3>
+                <ul class="list-disc list-inside mb-6">
+                    <li><strong>Web Development:</strong> Completed</li>
+                    <li><strong>Data Science:</strong> In Progress</li>
+                    <li><strong>Digital Marketing:</strong> Not Started</li>
+                </ul>
+
+                <h3 class="text-xl font-semibold text-blue-600 mb-4">Personal Details</h3>
+                <form class="space-y-4">
+                    <div>
+                        <label for="text" class="block text-sm font-medium text-gray-700">Name</label>
+
+                        <!-- <label for="email" class="block text-sm font-medium text-gray-700">Email Address</label> -->
+                        <input type="text" id="name" class="w-full p-2 border rounded-lg focus:ring-blue-500 focus:border-blue-500 bg-gray-50" value="Shantanu Das">
+                    </div>
+                    <div>
+                        <!-- <label for="text" class="block text-sm font-medium text-gray-700">Name</label> -->
+
+                        <label for="email" class="block text-sm font-medium text-gray-700">Email Address</label>
+                        <input type="email" id="email" class="w-full p-2 border rounded-lg focus:ring-blue-500 focus:border-blue-500 bg-gray-50" value="shantanudas@example.com">
+                    </div>
+                    <div>
+                        <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
+                        <input type="password" id="password" class="w-full p-2 border rounded-lg focus:ring-blue-500 focus:border-blue-500 bg-gray-50" placeholder="••••••••">
+                    </div>
+                    <button type="submit" class="w-full px-4 py-2 bg-green-400 text-white rounded-lg hover:bg-green-500 focus:ring-4 focus:outline-none focus:ring-blue-300">
+                        Save Changes
+                    </button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <footer class="text-center bg-gray-50 text-blue-700 p-3 mt-10">
+        <div>
+            <p>&copy; WisdomWarrior. All rights reserved. <br> PRANAB RAI</p>
+        </div>
+    </footer>
+
+</body>
+</html>
