@@ -3,8 +3,6 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>WisdomWarrior | About Us</title>
-    
     <!--Osm-->
     <link
       rel="stylesheet"
@@ -22,111 +20,172 @@
     <!-- Favicon -->
     <link rel="icon" href="images/LEARNSPHERE1.png">
     
-  </head>
 
-  <body class="bg-gray-100 text-gray-800">
-    <!-- Navbar -->
-    <nav class="bg-blue-600 shadow-md text-white">
-      <div class="container mx-auto flex items-center justify-between p-4">
+    <link rel="stylesheet" href="login.css" />
+    <title>WisdomWarrior</title>
+    <style>
+      .container {
+        height: 60vh;
+        width: 100vw;
+        position: relative;
+        object-fit: cover;
+        padding: 0;
+        border-radius: 10px;
+        box-shadow: 0 5 7 black;
+      }
+
+      #map {
+        height: 100%;
+        width: 100%;
+        border-radius: 10px;
+      }
+
+      .loc {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background-color: rgba(255, 255, 255, 0.8);
+        padding: 10px;
+        border-radius: 5px;
+        z-index: 1000;
+      }
+
+      .logo {
+        display:flex;
+        align-items:center;
+        /* width: 100%; */
+        font-family: Arial, sans-serif;
+        /* font-size: 44px; */
+      }
+
+      .logo-text {
+        font-size: 24px;
+        font-weight: bold;
+      }
+      nav {
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+          sans-serif;
+        color: white;
+      }
+      .container {
+        height: 60vh;
+        width: 95%;
+        object-fit: cover;
+        display: grid;
+      }
+      main {
+        margin-top: 3rem;
+        padding: 0 5rem;
+        /* background-color:; */
+      }
+    </style>
+  </head>
+  <body >
+    <!--bg-->
+    
+  <!-- Navigation Bar -->
+  <nav class="bg-blue-600 shadow-md text-white">
+    <div class="container mx-auto flex items-center justify-between p-4">
         <!-- Brand/Logo -->
         <a href="index.html" class="flex items-center text-white">
-          <div class="relative w-12 h-12">
-            <iframe
-              loading="lazy"
-              class="absolute inset-0 w-full h-full border-none rounded-3xl"
-              src="https://www.canva.com/design/DAGMZvUx5ZY/2AxAi0KOsSKmjHn_uq1ptw/view?embed"
-            ></iframe>
-          </div>
-          <span class="text-2xl font-bold ml-3">WisdomWarrior</span>
+            <div class="relative w-12 h-12">
+                <iframe loading="lazy" class="absolute inset-0 w-full h-full border-none rounded-3xl" 
+                    src="https://www.canva.com/design/DAGMZvUx5ZY/2AxAi0KOsSKmjHn_uq1ptw/view?embed">
+                </iframe>
+            </div>
+            <span class="text-2xl font-bold ml-3">WisdomWarrior</span>
         </a>
 
         <!-- Hamburger Menu for Mobile -->
         <button id="menu-toggle" class="lg:hidden text-white focus:outline-none">
-          <i class="fas fa-bars text-2xl"></i>
+            <i class="fas fa-bars text-2xl"></i>
         </button>
 
         <!-- Navigation Links -->
         <ul id="menu" class="hidden lg:flex lg:items-center lg:space-x-6">
-          <li><a href="index.html" class="hover:text-blue-200"><i class="fas fa-house"></i> Home</a></li>
-          <li><a href="aboutus.html" class="hover:text-blue-200">
-            <!-- <i class="fa-solid fa-address-card"></i> About</a></li> -->
-          <li class="relative group">
-            <a href="#" class="hover:text-blue-200 flex items-center">
-              <i class="fas fa-book"></i> Courses <i class="fas fa-chevron-down ml-1"></i>
-            </a>
-            <ul class="absolute hidden group-hover:block bg-white text-blue-600 mt-2 rounded-lg shadow-lg">
-              <!-- <li><a href="#web" class="block px-4 py-2 hover:bg-gray-100">Web Development</a></li>
-              <li><a href="#data" class="block px-4 py-2 hover:bg-gray-100">Data Science</a></li>
-              <li><a href="#dig" class="block px-4 py-2 hover:bg-gray-100">Digital Marketing</a></li>
-            </ul> -->
-          </li>
-          <li><a href="contact.html" class="hover:text-blue-200"><i class="fas fa-envelope"></i> Contact</a></li>
-          <li>
-            <button id="open-modal" class="bg-white text-blue-600 px-4 py-2 rounded-lg hover:bg-gray-200">
-              <i class="fa-solid fa-right-to-bracket"></i> Log In
-            </button>
-          </li>
-          <li><a href="profile.html" class="hover:text-blue-200"><i class="fas fa-user"></i> Profile</a></li>
+            <li><a href="index.html" class="hover:text-blue-200"><i class="fas fa-house"></i> Home</a></li>
+            <li><a href="aboutus.html" class="hover:text-blue-200"><i class="fa-solid fa-address-card"></i> About</a></li>
+            <li class="relative group">
+                <!-- Dropdown Trigger -->
+                <a href="#" class="hover:text-blue-200 flex items-center">
+                    <i class="fas fa-book"></i> Courses <i class="fas fa-chevron-down ml-1"></i>
+                </a>
+                <!-- Dropdown Menu -->
+                <ul class="absolute hidden group-hover:block bg-white text-blue-600 mt-2 rounded-lg shadow-lg">
+                    <li><a href="#web" class="block px-4 py-2 hover:bg-gray-100">Web Development</a></li>
+                    <li><a href="#data" class="block px-4 py-2 hover:bg-gray-100">Data Science</a></li>
+                    <li><a href="#dig" class="block px-4 py-2 hover:bg-gray-100">Digital Marketing</a></li>
+                </ul>
+            </li>
+            <li><a href="contact.html" class="hover:text-blue-200"><i class="fas fa-envelope"></i> Contact</a></li>
+            <li>
+                <button id="open-modal" class="bg-white text-blue-600 px-4 py-2 rounded-lg hover:bg-gray-200">
+                    <i class="fa-solid fa-right-to-bracket"></i> Log In
+                </button>
+            </li>
+            <li><a href="profile.html" class="hover:text-blue-200"><i class="fas fa-user"></i> Profile</a></li>
         </ul>
-      </div>
+    </div>
 
-      <!-- Modal -->
-      <div id="authentication-modal" class="hidden fixed inset-0 z-50 flex justify-center items-center bg-gray-900 bg-opacity-50">
+    <!-- Modal -->
+    <div id="authentication-modal" class="hidden fixed inset-0 z-50 flex justify-center items-center bg-gray-900 bg-opacity-50">
         <div class="bg-white p-6 rounded-lg w-full max-w-md">
-          <div class="flex justify-between items-center border-b pb-3">
-            <h3 class="text-xl font-semibold text-blue-700">Sign in to our platform</h3>
-            <button id="close-modal" class="text-gray-500 hover:text-gray-700">
-              <i class="fas fa-times"></i>
-            </button>
-          </div>
-          <form class="space-y-4 mt-4">
-            <div>
-              <label for="email" class="block text-sm font-medium text-gray-700">Email Address</label>
-              <input type="email" id="email" class="w-full px-3 py-2 border rounded-md focus:ring-blue-500 focus:border-blue-500" placeholder="name@company.com" required>
+            <!-- Modal Header -->
+            <div class="flex justify-between items-center border-b pb-3">
+                <h3 class="text-xl font-semibold text-blue-700">Sign in to our platform</h3>
+                <button id="close-modal" class="text-gray-500 hover:text-gray-700">
+                    <i class="fas fa-times"></i>
+                </button>
             </div>
-            <div>
-              <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
-              <input type="password" id="password" class="w-full px-3 py-2 border rounded-md focus:ring-blue-500 focus:border-blue-500" placeholder="••••••••" required>
-            </div>
-            <div class="flex justify-between items-center">
-              <div class="flex items-center">
-                <input id="remember" type="checkbox" class="w-4 h-4 rounded border-gray-300">
-                <label for="remember" class="ml-2 text-sm text-gray-600">Remember me</label>
-              </div>
-              <a href="#" class="text-sm text-blue-600 hover:underline">Lost Password?</a>
-            </div>
-            <button type="submit" class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700">Login</button>
-            <p class="text-sm text-center text-gray-600">
-              Not registered? <a href="registration.html" class="text-blue-600 hover:underline">Create account</a>
-            </p>
-          </form>
+            <!-- Modal Body -->
+            <form class="space-y-4 mt-4">
+                <div>
+                    <label for="email" class="block text-sm font-medium text-gray-700">Email Address</label>
+                    <input type="email" id="email" class="w-full px-3 py-2 border rounded-md focus:ring-blue-500 focus:border-blue-500" placeholder="name@company.com" required>
+                </div>
+                <div>
+                    <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
+                    <input type="password" id="password" class="w-full px-3 py-2 border rounded-md focus:ring-blue-500 focus:border-blue-500" placeholder="••••••••" required>
+                </div>
+                <div class="flex justify-between items-center">
+                    <div class="flex items-center">
+                        <input id="remember" type="checkbox" class="w-4 h-4 rounded border-gray-300">
+                        <label for="remember" class="ml-2 text-sm text-gray-600">Remember me</label>
+                    </div>
+                    <a href="#" class="text-sm text-blue-600 hover:underline">Lost Password?</a>
+                </div>
+                <button type="submit" class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700">Login</button>
+                <p class="text-sm text-center text-gray-600">
+                    Not registered? <a href="registration.html" class="text-blue-600 hover:underline">Create account</a>
+                </p>
+            </form>
         </div>
-      </div>
-    </nav>
+    </div>
+</nav>
 
-    <script>
-      // JavaScript for Hamburger Menu Toggle
-      document.getElementById('menu-toggle').addEventListener('click', function () {
-          const menu = document.getElementById('menu');
-          menu.classList.toggle('hidden');
-      });
+<script>
+    // JavaScript for Hamburger Menu Toggle
+    document.getElementById('menu-toggle').addEventListener('click', function () {
+        const menu = document.getElementById('menu');
+        menu.classList.toggle('hidden');
+    });
 
-      // JavaScript for Modal Toggle
-      const modal = document.getElementById('authentication-modal');
-      document.getElementById('open-modal').addEventListener('click', function () {
-          modal.classList.remove('hidden');
-      });
+    // JavaScript for Modal Toggle
+    const modal = document.getElementById('authentication-modal');
+    document.getElementById('open-modal').addEventListener('click', function () {
+        modal.classList.remove('hidden');
+    });
 
-      document.getElementById('close-modal').addEventListener('click', function () {
-          modal.classList.add('hidden');
-      });
-    </script>
-
-    <!-- Main Content -->
+    document.getElementById('close-modal').addEventListener('click', function () {
+        modal.classList.add('hidden');
+    });
+</script>
     
+
     <main class="map my-5">
-    
-      <h1 class="lead my-5 px-5" style="font-family: sans-serif ">About Us</h1>
+    </br>
+  </br>
+      <h1 class="lead my-5 px-5" style="font-family: sans-serif">About Us</h1>
       <div class="con bg-light rounded-4 p-4 m-0">
       <h1 class="lead my-5 px-5" style="font-family: sans-serif">
         Our Mission
@@ -386,7 +445,8 @@
         </div>
       </div>
     </main>
-    <!-- Footer -->
+
+    
     <footer class="bg-blue-600 text-white py-6">
       <div class="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 text-center md:text-left">
           <!-- About Section -->
@@ -428,7 +488,11 @@
           <p>&copy; 2024 WisdomWarrior. All rights reserved. | Designed with <i class="fa-solid fa-heart"></i> by PRANAB RAI</p>
       </div>
   </footer>
-  <script
+    
+
+  
+
+    <script
       src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
       integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
       crossorigin="anonymous"

@@ -3,7 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+    <title>Contact Us | WisdomWarrior</title>
+
+    <!--Font-Awesome-->
+    <link
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+        rel="stylesheet"
+    />
     <!--Bootstrap-->
     <link
         href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
@@ -11,20 +17,17 @@
         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
         crossorigin="anonymous"
     />
-    <!--Font-Awesome-->
-    <link
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-    rel="stylesheet"
-    />
+
     <!-- TailwindCSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="input.css">
+
+    <!-- Font Awesome for Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 
     <!-- Favicon -->
-    <link rel="icon" href="images/Cheipa1.png">
-    <title>Profile - WisdomWarrior</title>
+    <link rel="icon" href="images/LEARNSPHERE1.png">
 </head>
-<body class="bg-blue-200 text-black">
+<body class="bg-gray-100 text-gray-800">
 
     <!-- Header -->
     <nav class="bg-blue-600 shadow-md text-white">
@@ -52,10 +55,13 @@
                     <!-- Dropdown Trigger -->
                     <a href="courses.html" class="hover:text-blue-200 flex items-center">
                         <i class="fas fa-book"></i> Courses 
-                        <!-- <i class="fas fa-chevron-down ml-1"></i> -->
                     </a>
-                    
-                    
+                    <!-- Dropdown Menu -->
+                    <!-- <ul class="absolute hidden group-hover:block bg-white text-blue-600 mt-2 rounded-lg shadow-lg">
+                        <li><a href="#web" class="block px-4 py-2 hover:bg-gray-100">Web Development</a></li>
+                        <li><a href="#data" class="block px-4 py-2 hover:bg-gray-100">Data Science</a></li>
+                        <li><a href="#dig" class="block px-4 py-2 hover:bg-gray-100">Digital Marketing</a></li>
+                    </ul> -->
                 </li>
                 <li><a href="contact.html" class="hover:text-blue-200"><i class="fas fa-envelope"></i> Contact</a></li>
                 <li>
@@ -105,56 +111,79 @@
     
     
 
-    <!-- Profile Section -->
-    <main class="container mx-auto p-6 bg-white rounded-lg shadow-lg mt-10">
-        <h2 class="text-3xl font-semibold text-blue-600 text-center mb-6">Your Profile</h2>
-        <div class="flex flex-wrap justify-center">
-            <!-- Profile Info -->
-            <div class="w-full md:w-1/3 bg-blue-50 p-5 rounded-lg shadow-md text-center">
-                <img src="images/profile.jpg" alt="Profile Picture" class="w-32 h-32 rounded-full mx-auto mb-4">
-                <h3 class="text-xl font-semibold">Shantanu Das</h3>
-                <p class="text-sm text-gray-600">shantanudas@example.com</p>
-                <button class="mt-4 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300">
-                    Edit Profile
-                </button>
-            </div>
+    <!-- Hero Section -->
+    <section class="bg-blue-500 text-white text-center py-12 bg-[url('images/contact2.png')] bg-cover bg-fit flex-col text-black">
+        <div class="container mx-auto px-6 text-black ">
+            <h2 class="text-4xl font-bold mb-4">Get in Touch</h2>
+            <p class="text-lg">We'd love to hear from you. Fill out the form below or reach out to us directly.</p>
+        </div>
+    </section>
 
-            <!-- Courses and Settings -->
-            <div class="w-full md:w-2/3 p-5">
-                <h3 class="text-xl font-semibold text-blue-600 mb-4">Your Courses</h3>
-                <ul class="list-disc list-inside mb-6">
-                    <li><strong>Web Development:</strong> Completed</li>
-                    <li><strong>Data Science:</strong> In Progress</li>
-                    <li><strong>Digital Marketing:</strong> Not Started</li>
-                </ul>
+    <!-- Contact Section -->
+    <section class="container mx-auto py-12 px-6 grid grid-cols-1 md:grid-cols-2 gap-12">
+        <!-- Contact Form -->
+        <div>
+            <h3 class="text-3xl font-bold mb-6">Contact Form</h3>
+            <form class="space-y-6 bg-white p-6 rounded-lg shadow-md">
+                <div>
+                    <label for="name" class="block text-sm font-medium text-gray-700">Full Name</label>
+                    <input type="text" id="name" class="w-full px-4 py-2 border rounded-md focus:ring-blue-500 focus:border-blue-500" placeholder="Full Name" required>
+                </div>
+                <div>
+                    <label for="email" class="block text-sm font-medium text-gray-700">Email Address</label>
+                    <input type="email" id="email" class="w-full px-4 py-2 border rounded-md focus:ring-blue-500 focus:border-blue-500" placeholder="example@mail.com" required>
+                </div>
+                <div>
+                    <label for="subject" class="block text-sm font-medium text-gray-700">Subject</label>
+                    <input type="text" id="subject" class="w-full px-4 py-2 border rounded-md focus:ring-blue-500 focus:border-blue-500" placeholder="Subject" required>
+                </div>
+                <div>
+                    <label for="message" class="block text-sm font-medium text-gray-700">Message</label>
+                    <textarea id="message" rows="5" class="w-full px-4 py-2 border rounded-md focus:ring-blue-500 focus:border-blue-500" placeholder="Write your message here..." required></textarea>
+                </div>
+                <button type="submit" class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700">Send Message</button>
+            </form>
+        </div>
 
-                <h3 class="text-xl font-semibold text-blue-600 mb-4">Personal Details</h3>
-                <form class="space-y-4">
+        <!-- Contact Details -->
+        <div>
+            <h3 class="text-3xl font-bold mb-6">Contact Details</h3>
+            <div class="bg-white p-6 rounded-lg shadow-md space-y-6">
+                <div class="flex items-center space-x-4">
+                    <i class="fas fa-map-marker-alt text-blue-600 text-2xl"></i>
                     <div>
-                        <label for="text" class="block text-sm font-medium text-gray-700">Name</label>
-
-                        <!-- <label for="email" class="block text-sm font-medium text-gray-700">Email Address</label> -->
-                        <input type="text" id="name" class="w-full p-2 border rounded-lg focus:ring-blue-500 focus:border-blue-500 bg-gray-50" value="Shantanu Das">
+                        <h4 class="text-lg font-semibold">Our Address</h4>
+                        <p class="text-sm text-gray-600">
+                            Dharmaram College Post, Hosur Road, Bengaluru - 560029,
+                            Karnataka, India</p>
                     </div>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <i class="fas fa-envelope text-blue-600 text-2xl"></i>
                     <div>
-                        <!-- <label for="text" class="block text-sm font-medium text-gray-700">Name</label> -->
-
-                        <label for="email" class="block text-sm font-medium text-gray-700">Email Address</label>
-                        <input type="email" id="email" class="w-full p-2 border rounded-lg focus:ring-blue-500 focus:border-blue-500 bg-gray-50" value="shantanudas@example.com">
+                        <h4 class="text-lg font-semibold">Email Us</h4>
+                        <p class="text-sm text-gray-600"><a href="mailto:support@wisdomwarrior.com" class="hover:underline">support@wisdomwarrior.com</a></p>
                     </div>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <i class="fas fa-phone text-blue-600 text-2xl"></i>
                     <div>
-                        <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
-                        <input type="password" id="password" class="w-full p-2 border rounded-lg focus:ring-blue-500 focus:border-blue-500 bg-gray-50" placeholder="••••••••">
+                        <h4 class="text-lg font-semibold">Call Us</h4>
+                        <p class="text-sm text-gray-600">+1 23456 71890</p>
                     </div>
-                    <button type="submit" class="w-full px-4 py-2 bg-green-400 text-white rounded-lg hover:bg-green-500 focus:ring-4 focus:outline-none focus:ring-blue-300">
-                        Save Changes
-                    </button>
-                </form>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <i class="fas fa-clock text-blue-600 text-2xl"></i>
+                    <div>
+                        <h4 class="text-lg font-semibold">Working Hours</h4>
+                        <p class="text-sm text-gray-600">Mon - Fri: 9:00 AM - 5:00 PM</p>
+                        <p class="text-sm text-gray-600">Sat - Sun: Closed</p>
+                    </div>
+                </div>
             </div>
         </div>
-    </main>
-    </br>
-    </br>
+    </section>
+
     <!-- Footer -->
     <footer class="bg-blue-600 text-white py-6">
         <div class="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 text-center md:text-left">
@@ -191,7 +220,6 @@
                 </div>
             </div>
         </div>
-  
         <!-- Footer Bottom -->
         <div class="mt-6 border-t border-gray-400 pt-3 text-sm text-center">
             <p>&copy; 2024 WisdomWarrior. All rights reserved. | Designed with <i class="fa-solid fa-heart"></i> by PRANAB RAI</p>
