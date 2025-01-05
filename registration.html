@@ -21,126 +21,251 @@
 
     <!-- Favicon -->
     <link rel="icon" href="images/LEARNSPHERE1.png" />
-    <script type="module" src="register.js" defer >    </script>
+    <script type="module" src="register.js" defer></script>
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-app.js";
+      import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-database.js";
+
+      const firebaseConfig = {
+        apiKey: "AIzaSyB2Pj7lsXQw0Ld24HmMEluh-JyeScmxqu8",
+        authDomain: "wisdomwarrior-46ef7.firebaseapp.com",
+        databaseURL:
+          "https://wisdomwarrior-46ef7-default-rtdb.asia-southeast1.firebasedatabase.app",
+        projectId: "wisdomwarrior-46ef7",
+        storageBucket: "wisdomwarrior-46ef7.firebasestorage.app",
+        messagingSenderId: "287593660670",
+        appId: "1:287593660670:web:a283ba3c48dbbfd0da25af",
+      };
+
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+      const db = getDatabase(app);
+
+      // Form submission handler
+      document.getElementById("registrationForm").addEventListener("submit", (e) => {
+        e.preventDefault();
+        const email = document.getElementById("email").value;
+        const name = document.getElementById("fullName").value;
+        const dob = document.getElementById("dob").value;
+        const userId = email.replace(/[.#$]/g, '_'); // Create safe userId from email
+
+        try {
+          set(ref(db, "users/" + userId), {
+            username: name,
+            email: email,
+            dob: dob,
+            createdAt: new Date().toISOString()
+          });
+          alert("Account created successfully!");
+          window.location.href = "index.html"; // Redirect to home page
+        } catch (error) {
+          console.error("Error creating account:", error);
+          alert("Error creating account. Please try again.");
+        }
+      });
+    </script>
+    <style>
+      .form-container {
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+      }
+      .progress-step {
+        width: 20%;
+        height: 4px;
+        background: #e2e8f0;
+        margin-bottom: 2rem;
+      }
+      .progress-step.active {
+        background: #3b82f6;
+      }
+    </style>
     <title>WisdomWarrior - Registration Form</title>
   </head>
-  <body
-    style="
-      background: url('images/Cheipa.png') no-repeat center center fixed;
-      background-size: cover;
-    "
-  >
-  
-    <!-- Registration Form -->
-    <div class="container mx-auto p-4 pt-20 bg-white rounded-lg shadow-lg my-5 max-w-lg">
-      <h1 class="text-2xl font-bold mb-4 text-center">User Registration</h1>
-      <form id="registrationForm" class="space-y-4 needs-validation" novalidate>
-        <div>
-          <label for="fullName" class="block text-sm font-medium text-gray-700"
-            >Full Name:</label
-          >
-          <div class="relative">
-            <input
-              type="text"
-              id="fullName"
-              name="fullName"
-              class="bg-sky-50 border border-blue-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-              required
-            />
-            <span class="error text-red-500 text-sm" id="nameError"></span>
-          </div>
+  <body class="bg-gray-50" style="background: url('images/Cheipa.png') no-repeat center center fixed; background-size: cover;">
+    <div class="min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+      <div class="form-container max-w-md w-full space-y-8 p-8 rounded-xl shadow-2xl">
+        <!-- Logo Section -->
+        <div class="text-center">
+          <img class="mx-auto h-16 w-auto" src="images/LEARNSPHERE1.png" alt="WisdomWarrior Logo">
+          <h2 class="mt-6 text-3xl font-extrabold text-gray-900">Create your account</h2>
+          <p class="mt-2 text-sm text-gray-600">Join WisdomWarrior and start your learning journey</p>
         </div>
 
-        <div>
-          <label for="email" class="block text-sm font-medium text-gray-700">Email:</label>
-          <div class="relative">
-            <input
-              type="email"
-              id="email"
-              name="email"
-              class="bg-sky-50 border border-blue-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-              required
-            />
-            <span class="error text-red-500 text-sm" id="emailError"></span>
-          </div>
+        <!-- Progress Indicator -->
+        <div class="w-full bg-gray-200 rounded-full h-2.5 mb-4">
+          <div id="progress-bar" class="bg-blue-600 h-2.5 rounded-full" style="width: 0%"></div>
         </div>
 
-        <div>
-          <label for="password" class="block text-sm font-medium text-gray-700">Password:</label>
-          <div class="relative">
-            <input
-              type="password"
-              id="password"
-              name="password"
-              class="bg-sky-50 border border-blue-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-              required
-            />
-            <span class="error text-red-500 text-sm" id="passwordError"></span>
-          </div>
-        </div>
+        <form id="registrationForm" class="space-y-2 needs-validation" novalidate>
+          <div>
+            <label for="fullName" class="block text-sm font-medium text-gray-700"
+              >Full Name:</label
+            >
+            <div class="relative">
+              <input
+                type="text"
+                id="fullName"
+                name="fullName"
+                class="bg-sky-50 border border-blue-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                required
+              />
 
-        <div>
-          <label for="confirmPassword" class="block text-sm font-medium text-gray-700">Confirm Password:</label>
-          <div class="relative">
-            <input
-              type="password"
-              id="confirmPassword"
-              name="confirmPassword"
-              class="bg-sky-50 border border-blue-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-              required
-            />
-            <span class="error text-red-500 text-sm" id="confirmPasswordError"></span>
+              <span class="error text-red-500 text-sm" id="nameError"></span>
+            </div>
           </div>
-        </div>
 
-        <div>
-          <label for="dob" class="block text-sm font-medium text-gray-700">Date of Birth:</label>
-          <div class="relative">
-            <input
-              type="date"
-              id="dob"
-              name="dob"
-              class="bg-sky-50 border border-blue-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-              required
-            />
-            <span class="error text-red-500 text-sm" id="dobError"></span>
+          <div>
+            <label for="email" class="block text-sm font-medium text-gray-700"
+              >Email:</label
+            >
+            <div class="relative">
+              <input
+                type="email"
+                id="email"
+                name="email"
+                class="bg-sky-50 border border-blue-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                required
+              />
+              <span class="error text-red-500 text-sm" id="emailError"></span>
+            </div>
           </div>
-        </div>
 
-        <button
-        id="submit"
-          type="submit"
-          id="submitButton"
-          class="w-full text-white bg-blue-700 hover:bg-blue-800 rounded-lg text-sm px-5 py-2.5"
-        >
-          Register
-        </button>
-        <a href="index.html" class="btn btn-danger w-full text-white rounded-lg text-sm px-5 py-2.5 mt-3">Close</a>
-      </form>
+          <div>
+            <label for="password" class="block text-sm font-medium text-gray-700"
+              >Password:</label
+            >
+            <div class="relative">
+              <input
+                type="password"
+                id="password"
+                name="password"
+                class="bg-sky-50 border border-blue-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                required
+              />
+              <span class="error text-red-500 text-sm" id="passwordError"></span>
+            </div>
+          </div>
+
+          <div>
+            <label
+              for="confirmPassword"
+              class="block text-sm font-medium text-gray-700"
+              >Confirm Password:</label
+            >
+            <div class="relative">
+              <input
+                type="password"
+                id="confirmPassword"
+                name="confirmPassword"
+                class="bg-sky-50 border border-blue-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                required
+              />
+              <span
+                class="error text-red-500 text-sm"
+                id="confirmPasswordError"
+              ></span>
+            </div>
+          </div>
+
+          <div>
+            <label for="dob" class="block text-sm font-medium text-gray-700"
+              >Date of Birth:</label
+            >
+            <div class="relative">
+              <input
+                type="date"
+                id="dob"
+                name="dob"
+                class="bg-sky-50 border border-blue-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                required
+              />
+              <span class="error text-red-500 text-sm" id="dobError"></span>
+            </div>
+          </div>
+
+          <!-- Terms and Conditions Checkbox -->
+          <div class="flex items-center">
+            <input id="terms" name="terms" type="checkbox" class="h-4 w-4 text-blue-600 rounded border-gray-300" required>
+            <label for="terms" class="ml-2 block text-sm text-gray-900">
+              I agree to the <a href="#" class="text-blue-600 hover:text-blue-500">Terms of Service</a> and
+              <a href="#" class="text-blue-600 hover:text-blue-500">Privacy Policy</a>
+            </label>
+          </div>
+
+          <button type="submit" id="submit"
+            class="group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+            <span class="absolute left-0 inset-y-0 flex items-center pl-3">
+              <svg class="h-5 w-5 text-blue-500 group-hover:text-blue-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd" />
+              </svg>
+            </span>
+            Create Account
+          </button>
+
+          <div class="text-center">
+            <a href="index.html" class="text-sm text-blue-600 hover:text-blue-500">
+              Already have an account? Sign in
+            </a>
+          </div>
+        </form>
+      </div>
     </div>
 
     <!-- Bootstrap JS and dependencies -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
 
-    <!-- Custom JS for form validation -->
+    <!-- Custom JS for form validation and progress bar -->
     <script>
       (function () {
-        'use strict';
-        window.addEventListener('load', function () {
-          // Fetch all the forms we want to apply custom Bootstrap validation styles to
-          var forms = document.getElementsByClassName('needs-validation');
-          // Loop over them and prevent submission
-          Array.prototype.filter.call(forms, function (form) {
-            form.addEventListener('submit', function (event) {
-              if (form.checkValidity() === false) {
-                event.preventDefault();
-                event.stopPropagation();
-              }
-              form.classList.add('was-validated');
-            }, false);
+        "use strict";
+
+        // Track form progress
+        const formInputs = document.querySelectorAll('input[required]');
+        const progressBar = document.getElementById('progress-bar');
+        const totalFields = formInputs.length;
+        
+        function updateProgress() {
+          let filledFields = 0;
+          formInputs.forEach(input => {
+            if (input.type === 'checkbox') {
+              if (input.checked) filledFields++;
+            } else {
+              if (input.value.trim() !== '') filledFields++;
+            }
           });
-        }, false);
+          
+          const progress = (filledFields / totalFields) * 100;
+          progressBar.style.width = `${progress}%`;
+        }
+
+        // Add input event listeners to all required fields
+        formInputs.forEach(input => {
+          input.addEventListener('input', updateProgress);
+          input.addEventListener('change', updateProgress);
+        });
+
+        // Form validation code
+        window.addEventListener(
+          "load",
+          function () {
+            var forms = document.getElementsByClassName("needs-validation");
+            Array.prototype.filter.call(forms, function (form) {
+              form.addEventListener(
+                "submit",
+                function (event) {
+                  if (form.checkValidity() === false) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                  }
+                  form.classList.add("was-validated");
+                },
+                false
+              );
+            });
+          },
+          false
+        );
       })();
     </script>
   </body>

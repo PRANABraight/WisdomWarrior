@@ -24,139 +24,219 @@
     <link rel="icon" href="images/Cheipa1.png">
     <title>Profile - WisdomWarrior</title>
 </head>
-<body class="bg-blue-200 text-black">
+<body class="bg-gray-100 text-gray-800">
 
-    <!-- Header -->
+    <!-- Navigation Bar -->
     <nav class="bg-blue-600 shadow-md text-white">
-        <div class="container mx-auto flex items-center justify-between p-4">
-            <!-- Brand/Logo -->
-            <a href="index.html" class="flex items-center text-white">
-                <div class="relative w-12 h-12">
-                    <iframe loading="lazy" class="absolute inset-0 w-full h-full border-none rounded-3xl" 
-                        src="https://www.canva.com/design/DAGMZvUx5ZY/2AxAi0KOsSKmjHn_uq1ptw/view?embed">
-                    </iframe>
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center h-16">
+                <!-- Brand/Logo -->
+                <a href="index.html" class="flex items-center text-white">
+                    <div class="relative w-12 h-12">
+                        <iframe loading="lazy" class="absolute inset-0 w-full h-full border-none rounded-3xl" 
+                            src="https://www.canva.com/design/DAGMZvUx5ZY/2AxAi0KOsSKmjHn_uq1ptw/view?embed">
+                        </iframe>
+                    </div>
+                    <span class="text-2xl font-bold ml-3">WisdomWarrior</span>
+                </a>
+    
+                <!-- Mobile menu button -->
+                <div class="flex md:hidden">
+                    <button id="menu-toggle" type="button" class="text-white hover:text-gray-200 focus:outline-none">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                    </button>
                 </div>
-                <span class="text-2xl font-bold ml-3">WisdomWarrior</span>
-            </a>
     
-            <!-- Hamburger Menu for Mobile -->
-            <button id="menu-toggle" class="lg:hidden text-white focus:outline-none">
-                <i class="fas fa-bars text-2xl"></i>
-            </button>
-    
-            <!-- Navigation Links -->
-            <ul id="menu" class="hidden lg:flex lg:items-center lg:space-x-6">
-                <li><a href="index.html" class="hover:text-blue-200"><i class="fas fa-house"></i> Home</a></li>
-                <li><a href="aboutus.html" class="hover:text-blue-200"><i class="fa-solid fa-address-card"></i> About</a></li>
-                <li class="relative group">
-                    <!-- Dropdown Trigger -->
-                    <a href="courses.html" class="hover:text-blue-200 flex items-center">
-                        <i class="fas fa-book"></i> Courses 
-                        <!-- <i class="fas fa-chevron-down ml-1"></i> -->
-                    </a>
-                    
-                    
-                </li>
-                <li><a href="contact.html" class="hover:text-blue-200"><i class="fas fa-envelope"></i> Contact</a></li>
-                <li>
+                <!-- Navigation Links -->
+                <div id="menu" class="hidden md:flex md:items-center md:space-x-4">
+                    <a href="index.html" class="text-white hover:text-blue-200 px-3 py-2"><i class="fas fa-house"></i> Home</a>
+                    <a href="aboutus.html" class="text-white hover:text-blue-200 px-3 py-2"><i class="fa-solid fa-address-card"></i> About</a>
+                    <a href="courses.html" class="text-white hover:text-blue-200 px-3 py-2"><i class="fas fa-book"></i> Courses</a>
+                    <a href="contact.html" class="text-white hover:text-blue-200 px-3 py-2"><i class="fas fa-envelope"></i> Contact</a>
                     <button id="open-modal" class="bg-white text-blue-600 px-4 py-2 rounded-lg hover:bg-gray-200">
                         <i class="fa-solid fa-right-to-bracket"></i> Log In
                     </button>
-                </li>
-                <li><a href="profile.html" class="hover:text-blue-200"><i class="fas fa-user"></i> Profile</a></li>
-            </ul>
-        </div>
+                    <a href="profile.html" class="text-white hover:text-blue-200 px-3 py-2"><i class="fas fa-user"></i> Profile</a>
+                </div>
+            </div>
     
-        <!-- Modal -->
-        <div id="authentication-modal" class="hidden fixed inset-0 z-50 flex justify-center items-center bg-gray-900 bg-opacity-50">
-            <div class="bg-white p-6 rounded-lg w-full max-w-md">
-                <!-- Modal Header -->
-                <div class="flex justify-between items-center border-b pb-3">
-                    <h3 class="text-xl font-semibold text-blue-700">Sign in to our platform</h3>
-                    <button id="close-modal" class="text-gray-500 hover:text-gray-700">
-                        <i class="fas fa-times"></i>
+            <!-- Mobile menu (hidden by default) -->
+            <div id="mobile-menu" class="hidden md:hidden">
+                <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                    <a href="index.html" class="block text-white hover:text-blue-200 px-3 py-2"><i class="fas fa-house"></i> Home</a>
+                    <a href="aboutus.html" class="block text-white hover:text-blue-200 px-3 py-2"><i class="fa-solid fa-address-card"></i> About</a>
+                    <a href="courses.html" class="block text-white hover:text-blue-200 px-3 py-2"><i class="fas fa-book"></i> Courses</a>
+                    <a href="contact.html" class="block text-white hover:text-blue-200 px-3 py-2"><i class="fas fa-envelope"></i> Contact</a>
+                    <a href="profile.html" class="block text-white hover:text-blue-200 px-3 py-2"><i class="fas fa-user"></i> Profile</a>
+                    <button id="mobile-open-modal" class="w-full text-left bg-white text-blue-600 px-4 py-2 rounded-lg hover:bg-gray-200 mt-2">
+                        <i class="fa-solid fa-right-to-bracket"></i> Log In
                     </button>
                 </div>
-                <!-- Modal Body -->
-                <form class="space-y-4 mt-4">
-                    <div>
-                        <label for="email" class="block text-sm font-medium text-gray-700">Email Address</label>
-                        <input type="email" id="email" class="w-full px-3 py-2 border rounded-md focus:ring-blue-500 focus:border-blue-500" placeholder="name@company.com" required>
-                    </div>
-                    <div>
-                        <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
-                        <input type="password" id="password" class="w-full px-3 py-2 border rounded-md focus:ring-blue-500 focus:border-blue-500" placeholder="••••••••" required>
-                    </div>
-                    <div class="flex justify-between items-center">
-                        <div class="flex items-center">
-                            <input id="remember" type="checkbox" class="w-4 h-4 rounded border-gray-300">
-                            <label for="remember" class="ml-2 text-sm text-gray-600">Remember me</label>
-                        </div>
-                        <a href="#" class="text-sm text-blue-600 hover:underline">Lost Password?</a>
-                    </div>
-                    <button type="submit" class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700">Login</button>
-                    <p class="text-sm text-center text-gray-600">
-                        Not registered? <a href="registration.html" class="text-blue-600 hover:underline">Create account</a>
-                    </p>
-                </form>
             </div>
         </div>
     </nav>
     
+    <script>
+        // Toggle mobile menu
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+    
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    
+        // Modal functionality
+        const openModalBtn = document.getElementById('open-modal');
+        const mobileOpenModalBtn = document.getElementById('mobile-open-modal');
+        const closeModalBtn = document.getElementById('close-modal');
+    
+        function openModal() {
+            modal.classList.remove('hidden');
+        }
+    
+        function closeModal() {
+            modal.classList.add('hidden');
+        }
+    
+        openModalBtn.addEventListener('click', openModal);
+        mobileOpenModalBtn.addEventListener('click', openModal);
+        closeModalBtn.addEventListener('click', closeModal);
+    
+        // Close modal when clicking outside
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+    
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!menuToggle.contains(e.target) && !mobileMenu.contains(e.target)) {
+                mobileMenu.classList.add('hidden');
+            }
+        });
+    </script>
+    
+    
+    
     
 
     <!-- Profile Section -->
-    <main class="container mx-auto p-6 bg-white rounded-lg shadow-lg mt-10">
-        <h2 class="text-3xl font-semibold text-blue-600 text-center mb-6">Your Profile</h2>
-        <div class="flex flex-wrap justify-center">
-            <!-- Profile Info -->
-            <div class="w-full md:w-1/3 bg-blue-50 p-5 rounded-lg shadow-md text-center">
-                <img src="images/profile.jpg" alt="Profile Picture" class="w-32 h-32 rounded-full mx-auto mb-4">
-                <h3 class="text-xl font-semibold">Shantanu Das</h3>
-                <p class="text-sm text-gray-600">shantanudas@example.com</p>
-                <button class="mt-4 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300">
-                    Edit Profile
-                </button>
+    <main class="container mx-auto p-8">
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+            <!-- Header Banner -->
+            <div class="bg-gradient-to-r from-blue-400 to-blue-600 h-32 relative">
+                <div class="absolute -bottom-16 left-8">
+                    <img src="images/prof.png" alt="Profile Picture" class="w-32 h-32 rounded-full border-4 border-white shadow-lg">
+                </div>
             </div>
 
-            <!-- Courses and Settings -->
-            <div class="w-full md:w-2/3 p-5">
-                <h3 class="text-xl font-semibold text-blue-600 mb-4">Your Courses</h3>
-                <ul class="list-disc list-inside mb-6">
-                    <li><strong>Web Development:</strong> Completed</li>
-                    <li><strong>Data Science:</strong> In Progress</li>
-                    <li><strong>Digital Marketing:</strong> Not Started</li>
-                </ul>
-
-                <h3 class="text-xl font-semibold text-blue-600 mb-4">Personal Details</h3>
-                <form class="space-y-4">
+            <div class="mt-20 px-8 pb-8">
+                <!-- Profile Header -->
+                <div class="flex justify-between items-start">
                     <div>
-                        <label for="text" class="block text-sm font-medium text-gray-700">Name</label>
-
-                        <!-- <label for="email" class="block text-sm font-medium text-gray-700">Email Address</label> -->
-                        <input type="text" id="name" class="w-full p-2 border rounded-lg focus:ring-blue-500 focus:border-blue-500 bg-gray-50" value="Shantanu Das">
+                        <h2 class="text-3xl font-bold text-gray-800">Shantanu Das</h2>
+                        <p class="text-gray-600">Student since January 2024</p>
                     </div>
-                    <div>
-                        <!-- <label for="text" class="block text-sm font-medium text-gray-700">Name</label> -->
-
-                        <label for="email" class="block text-sm font-medium text-gray-700">Email Address</label>
-                        <input type="email" id="email" class="w-full p-2 border rounded-lg focus:ring-blue-500 focus:border-blue-500 bg-gray-50" value="shantanudas@example.com">
-                    </div>
-                    <div>
-                        <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
-                        <input type="password" id="password" class="w-full p-2 border rounded-lg focus:ring-blue-500 focus:border-blue-500 bg-gray-50" placeholder="••••••••">
-                    </div>
-                    <button type="submit" class="w-full px-4 py-2 bg-green-400 text-white rounded-lg hover:bg-green-500 focus:ring-4 focus:outline-none focus:ring-blue-300">
-                        Save Changes
+                    <button class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors">
+                        Edit Profile
                     </button>
-                </form>
+                </div>
+
+                <!-- Main Content Grid -->
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mt-8">
+                    <!-- Left Column - Personal Info -->
+                    <div class="lg:col-span-1">
+                        <div class="bg-gray-50 rounded-lg p-6 shadow-sm">
+                            <h3 class="text-xl font-semibold mb-4 text-gray-800">Personal Information</h3>
+                            <div class="space-y-4">
+                                <div>
+                                    <p class="text-sm text-gray-500">Email</p>
+                                    <p class="font-medium">shantanudas@example.com</p>
+                                </div>
+                                <div>
+                                    <p class="text-sm text-gray-500">Location</p>
+                                    <p class="font-medium">Mumbai, India</p>
+                                </div>
+                                <div>
+                                    <p class="text-sm text-gray-500">Member Since</p>
+                                    <p class="font-medium">January 2024</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Center/Right Column - Courses & Progress -->
+                    <div class="lg:col-span-2">
+                        <div class="bg-gray-50 rounded-lg p-6 shadow-sm mb-6">
+                            <h3 class="text-xl font-semibold mb-4 text-gray-800">Current Courses</h3>
+                            <div class="space-y-4">
+                                <div class="border-b pb-4">
+                                    <div class="flex justify-between items-center mb-2">
+                                        <span class="font-medium">Web Development</span>
+                                        <span class="text-green-600 text-sm">100% Complete</span>
+                                    </div>
+                                    <div class="w-full bg-gray-200 rounded-full h-2">
+                                        <div class="bg-green-600 h-2 rounded-full" style="width: 100%"></div>
+                                    </div>
+                                </div>
+
+                                <div class="border-b pb-4">
+                                    <div class="flex justify-between items-center mb-2">
+                                        <span class="font-medium">Data Science</span>
+                                        <span class="text-blue-600 text-sm">60% Complete</span>
+                                    </div>
+                                    <div class="w-full bg-gray-200 rounded-full h-2">
+                                        <div class="bg-blue-600 h-2 rounded-full" style="width: 60%"></div>
+                                    </div>
+                                </div>
+
+                                <div class="pb-4">
+                                    <div class="flex justify-between items-center mb-2">
+                                        <span class="font-medium">Digital Marketing</span>
+                                        <span class="text-gray-600 text-sm">Not Started</span>
+                                    </div>
+                                    <div class="w-full bg-gray-200 rounded-full h-2">
+                                        <div class="bg-gray-400 h-2 rounded-full" style="width: 0%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Account Settings -->
+                        <div class="bg-gray-50 rounded-lg p-6 shadow-sm">
+                            <h3 class="text-xl font-semibold mb-4 text-gray-800">Account Settings</h3>
+                            <form class="space-y-4">
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
+                                        <input type="text" class="w-full p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" value="Shantanu Das">
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                                        <input type="email" class="w-full p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" value="shantanudas@example.com">
+                                    </div>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">Password</label>
+                                    <input type="password" class="w-full p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" placeholder="••••••••">
+                                </div>
+                                <button type="submit" class="w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors focus:ring-4 focus:ring-blue-300">
+                                    Update Profile
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </main>
     </br>
     </br>
-    <!-- Footer -->
-    <footer class="bg-blue-600 text-white py-6">
+    <!-- Footer with updated styling -->
+    <footer class="bg-blue-600 text-white py-12">
         <div class="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 text-center md:text-left">
             <!-- About Section -->
             <div>
@@ -184,12 +264,11 @@
                 <p class="text-sm">Email: <a href="mailto:support@wisdomwarrior.com" class="hover:underline">support@wisdomwarrior.com</a></p>
                 <p class="text-sm">Phone: +91 23456 78901</p>
                 <div class="mt-3 flex justify-center md:justify-start space-x-4">
-                    <!-- <a href="#" class="text-white hover:text-gray-300"><i class="fab fa-facebook-f"></i></a> -->
-                    <!-- <a href=https:#" class="text-white hover:text-gray-300"><i class="fab fa-twitter"></i></a> -->
                     <a href="https://www.instagram.com/pranabrai1/" target="_blank" class="text-white hover:text-gray-300"><i class="fab fa-instagram"></i></a>
                     <a href="https://www.linkedin.com/in/pranab-rai-924b6731b/" target="_blank" class="text-white hover:text-gray-300"><i class="fab fa-linkedin-in"></i></a>
                 </div>
             </div>
+  
         </div>
   
         <!-- Footer Bottom -->
@@ -197,14 +276,224 @@
             <p>&copy; 2024 WisdomWarrior. All rights reserved. | Designed with <i class="fa-solid fa-heart"></i> by PRANAB RAI</p>
         </div>
     </footer>
+    
+<!-- Login Modal -->
+<div id="login-modal" class="hidden fixed inset-0 z-50 flex justify-center items-center bg-gray-900 bg-opacity-50">
+    <div class="bg-white p-6 rounded-lg w-full max-w-md">
+        <!-- Modal Header -->
+        <div class="flex justify-between items-center border-b pb-3">
+            <h3 class="text-xl font-semibold text-blue-700">Sign in to WisdomWarrior</h3>
+            <button id="close-login-modal" class="text-gray-500 hover:text-gray-700">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        
+        <!-- Modal Body -->
+        <form class="space-y-4 mt-4">
+            <div>
+                <label for="login-email" class="block text-sm font-medium text-gray-700">Email Address</label>
+                <input type="email" id="login-email" class="w-full px-3 py-2 border rounded-md text-gray-700 focus:ring-blue-500 focus:border-blue-500" placeholder="name@company.com" required>
+            </div>
+            <div>
+                <label for="login-password" class="block text-sm font-medium text-gray-700">Password</label>
+                <input type="password" id="login-password" class="w-full px-3 py-2 border rounded-md text-gray-700 focus:ring-blue-500 focus:border-blue-500" placeholder="••••••••" required>
+            </div>
+            <div class="flex justify-between items-center">
+                <div class="flex items-center">
+                    <input id="remember" type="checkbox" class="w-4 h-4 rounded border-gray-300">
+                    <label for="remember" class="ml-2 text-sm text-gray-600">Remember me</label>
+                </div>
+                <a href="index.html" class="text-sm text-blue-600 hover:underline">Forgot Password?</a>
+            </div>
+            <button type="submit" class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition duration-200">Sign In</button>
+            
+            <!-- Social Login Divider -->
+            <div class="relative my-4">
+                <div class="absolute inset-0 flex items-center">
+                    <div class="w-full border-t border-gray-300"></div>
+                </div>
+                <div class="relative flex justify-center text-sm">
+                    <!-- <span class="px-2 bg-white text-gray-500">Or continue with</span> -->
+                </div>
+            </div>
+            
+            <!-- Social Login Buttons -->
+            <div class="grid grid-cols-2 gap-3">
+                <!-- <button type="button" class="flex items-center justify-center px-4 py-2 border rounded-md shadow-sm text-sm text-gray-700 bg-white hover:bg-gray-50 transition duration-200">
+                    <i class="fab fa-google mr-2"></i> Google
+                </button>
+                <button type="button" class="flex items-center justify-center px-4 py-2 border rounded-md shadow-sm text-sm text-gray-700 bg-white hover:bg-gray-50 transition duration-200">
+                    <i class="fab fa-facebook-f mr-2"></i> Facebook
+                </button> -->
+            </div>
+
+            <p class="text-sm text-center text-gray-600 mt-4">
+                Not registered? 
+                <a href="registration.html" class="text-blue-600 hover:underline font-medium">
+                    Create account
+                </a>
+            </p>
+        </form>
+    </div>
+</div>
+
+<!-- Login Modal -->
+<div id="authentication-modal" class="hidden fixed inset-0 z-50 flex justify-center items-center bg-gray-900 bg-opacity-50">
+    <div class="bg-white rounded-xl shadow-lg w-full max-w-md mx-4 transform transition-all">
+        <!-- Modal Header -->
+        <div class="bg-gradient-to-r from-blue-600 to-blue-700 p-6 rounded-t-xl">
+            <div class="flex justify-between items-center">
+                <div>
+                    <h3 class="text-xl font-semibold text-white">Sign in to WisdomWarrior</h3>
+                    <p class="text-blue-100 text-sm mt-1">Continue your learning journey</p>
+                </div>
+                <button id="close-modal" class="text-white hover:text-gray-200 transition-colors">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Modal Body -->
+        <div class="p-6">
+            <form class="space-y-4">
+                <!-- Email Input -->
+                <div>
+                    <label for="email" class="block text-sm font-medium text-gray-700">Email Address</label>
+                    <div class="mt-1 relative rounded-md shadow-sm">
+                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                            <i class="fas fa-envelope text-gray-400"></i>
+                        </div>
+                        <input type="email" id="email" 
+                            class="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" 
+                            placeholder="name@company.com" required>
+                    </div>
+                </div>
+
+                <!-- Password Input -->
+                <div>
+                    <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
+                    <div class="mt-1 relative rounded-md shadow-sm">
+                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                            <i class="fas fa-lock text-gray-400"></i>
+                        </div>
+                        <input type="password" id="password" 
+                            class="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" 
+                            placeholder="••••••••" required>
+                    </div>
+                </div>
+
+                <!-- Remember Me & Forgot Password -->
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center">
+                        <input type="checkbox" id="remember" 
+                            class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded">
+                        <label for="remember" class="ml-2 text-sm text-gray-600">Remember me</label>
+                    </div>
+                    <a href="index.html" class="text-sm text-blue-600 hover:text-blue-500">Forgot password?</a>
+                </div>
+
+                <!-- Sign In Button -->
+                <button type="submit" 
+                    class="w-full bg-blue-600 text-white py-2.5 rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors">
+                    Sign in
+                </button>
+
+                <!-- Social Login Section -->
+                <div class="relative my-6">
+                    <div class="absolute inset-0 flex items-center">
+                        <div class="w-full border-t border-gray-300"></div>
+                    </div>
+                    <div class="relative flex justify-center text-sm">
+                        <!-- <span class="px-2 bg-white text-gray-500">Or continue with</span> -->
+                    </div>
+                </div>
+
+                <!-- Social Login Buttons -->
+                <div class="grid grid-cols-2 gap-3">
+                    <button type="button" 
+                        class="flex justify-center items-center px-4 py-2 border border-gray-300 rounded-lg shadow-sm bg-white text-sm font-medium text-gray-700 hover:bg-gray-50">
+                        <i class="fab fa-google text-red-500 mr-2"></i>
+                        Google
+                    </button>
+                    <button type="button"
+                        class="flex justify-center items-center px-4 py-2 border border-gray-300 rounded-lg shadow-sm bg-white text-sm font-medium text-gray-700 hover:bg-gray-50">
+                        <i class="fab fa-facebook-f text-blue-600 mr-2"></i>
+                        Facebook
+                    </button>
+                </div>
+
+                <!-- Registration Link -->
+                <p class="mt-4 text-sm text-center text-gray-600">
+                    Not registered? 
+                    <a href="registration.html" class="font-medium text-blue-600 hover:text-blue-500">
+                        Create an account
+                    </a>
+                </p>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Menu Toggle for Mobile
+    // const menuToggle = document.getElementById('menu-toggle');
+    // const mobileMenu = document.getElementById('mobile-menu');
+
+    menuToggle.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+    });
+
+    // Login Modal Functions
+    const loginModal = document.getElementById('login-modal');
+    const loginBtn = document.getElementById('login-btn');
+    const mobileLoginBtn = document.getElementById('mobile-open-modal');
+    const closeLoginModal = document.getElementById('close-login-modal');
+
+    function openLoginModal() {
+        loginModal.classList.remove('hidden');
+        document.body.style.overflow = 'hidden'; // Prevent background scrolling
+    }
+
+    function closeLoginModalFunc() {
+        loginModal.classList.add('hidden');
+        document.body.style.overflow = ''; // Restore scrolling
+    }
+
+    loginBtn.addEventListener('click', openLoginModal);
+    if (mobileLoginBtn) {
+        mobileLoginBtn.addEventListener('click', openLoginModal);
+    }
+    closeLoginModal.addEventListener('click', closeLoginModalFunc);
+
+    // Close modal when clicking outside
+    loginModal.addEventListener('click', (e) => {
+        if (e.target === loginModal) {
+            closeLoginModalFunc();
+        }
+    });
+
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!menuToggle.contains(e.target) && !mobileMenu.contains(e.target)) {
+            mobileMenu.classList.add('hidden');
+        }
+    });
+
+    // Prevent modal close when clicking inside
+    loginModal.querySelector('.bg-white').addEventListener('click', (e) => {
+        e.stopPropagation();
+    });
+</script>
+
+
     <script>
-        // JavaScript for Hamburger Menu Toggle
+        // Menu Toggle for Mobile
         document.getElementById('menu-toggle').addEventListener('click', function () {
-            const menu = document.getElementById('menu');
+            const menu = document.getElement.getElementById('menu');
             menu.classList.toggle('hidden');
         });
     
-        // JavaScript for Modal Toggle
+        // Modal Toggle
         const modal = document.getElementById('authentication-modal');
         document.getElementById('open-modal').addEventListener('click', function () {
             modal.classList.remove('hidden');

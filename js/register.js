@@ -2,16 +2,16 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-app.js";
 import {  getAuth,  createUserWithEmailAndPassword,} from "https://www.gstatic.com/firebasejs/11.1.0/firebase-auth.js";
 
-// Your web app's Firebase configuration
-const firebaseConfig = {
+  // Your web app's Firebase configuration
+  const firebaseConfig = {
     apiKey: "AIzaSyB2Pj7lsXQw0Ld24HmMEluh-JyeScmxqu8",
     authDomain: "wisdomwarrior-46ef7.firebaseapp.com",
+    databaseURL: "https://wisdomwarrior-46ef7-default-rtdb.asia-southeast1.firebasedatabase.app",
     projectId: "wisdomwarrior-46ef7",
     storageBucket: "wisdomwarrior-46ef7.firebasestorage.app",
     messagingSenderId: "287593660670",
-    appId: "1:287593660670:web:a283ba3c48dbbfd0da25af",
+    appId: "1:287593660670:web:a283ba3c48dbbfd0da25af"
   };
-  
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
