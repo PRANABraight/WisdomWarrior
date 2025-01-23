@@ -17,20 +17,7 @@
     <link rel="icon" href="images/LEARNSPHERE1.png ">
     <script type="module" src="js/" defer >    </script>
     <title>WisdomWarrior</title>
-    <style>
-        /* .hero-overlay {
-            background: linear-gradient(rgba(37, 235, 225, 0.7), rgba(30, 64, 175, 0.8));
-        } */
-        .nav-link {
-            transition: all 0.3s ease;
-        }
-        .course-card {
-            transition: transform 0.3s ease;
-        }
-        .course-card:hover {
-            transform: translateY(-5px);
-        }
-    </style>
+    
 </head>
 <body class=" text-black">
 
@@ -38,7 +25,31 @@
     <div class="relative bg-[url('images/Cheipa.png')] bg-cover bg-center h-screen">
         <div class="hero-overlay absolute inset-0">
             <!-- Navigation Bar -->
-            <nav class="bg-blue-600 shadow-md text-white">
+            <style>
+                .nav-link {
+                    transition: all 0.3s ease;
+                }
+                .section-card {
+                    transition: transform 0.3s ease;
+                    background: white;
+                    border-radius: 1rem;
+                    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                }
+                .section-card:hover {
+                    transform: translateY(-5px);
+                }
+                .map-container {
+                    transition: all 0.3s ease;
+                          }
+                .map-container:hover {
+                    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+                }
+            </style>
+          </head>
+        
+          <body class="bg-gradient-to-br from-blue-50 to-blue-100 text-gray-800">
+            <!-- Navigation Bar -->
+            <nav class="bg-blue-600 shadow-md text-white fixed w-full z-50 top-0">
                 <div class="container mx-auto px-4">
                     <div class="flex justify-between items-center h-16">
                         <!-- Brand/Logo -->
@@ -51,37 +62,53 @@
                             <span class="text-2xl font-bold ml-3">WisdomWarrior</span>
                         </a>
             
-                        <!-- Mobile menu button -->
-                        <div class="flex md:hidden">
-                            <button id="menu-toggle" type="button" class="text-white hover:text-gray-200 focus:outline-none">
-                                <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-                                </svg>
-                            </button>
-                        </div>
-            
-                        <!-- Navigation Links -->
-                        <div id="menu" class="hidden md:flex md:items-center md:space-x-4">
-                            <a href="index.html" class="text-white hover:text-blue-200 px-3 py-2"><i class="fas fa-house"></i> Home</a>
-                            <a href="aboutus.html" class="text-white hover:text-blue-200 px-3 py-2"><i class="fa-solid fa-address-card"></i> About</a>
-                            <a href="courses.html" class="text-white hover:text-blue-200 px-3 py-2"><i class="fas fa-book"></i> Courses</a>
-                            <a href="contact.html" class="text-white hover:text-blue-200 px-3 py-2"><i class="fas fa-envelope"></i> Contact</a>
-                            <button id="open-modal" class="bg-white text-blue-600 px-4 py-2 rounded-lg hover:bg-gray-200">
+                        <!-- Desktop Navigation Links -->
+                        <div class="hidden md:flex md:items-center md:space-x-4">
+                            <a href="index.html" class="nav-link text-white hover:text-blue-200 px-3 py-2 transition-colors">
+                                <i class="fas fa-house"></i> Home
+                            </a>
+                            <a href="aboutus.html" class="nav-link text-white hover:text-blue-200 px-3 py-2 transition-colors">
+                                <i class="fa-solid fa-address-card"></i> About
+                            </a>
+                            <a href="courses.html" class="nav-link text-white hover:text-blue-200 px-3 py-2 transition-colors">
+                                <i class="fas fa-book"></i> Courses
+                            </a>
+                            <a href="contact.html" class="nav-link text-white hover:text-blue-200 px-3 py-2 transition-colors">
+                                <i class="fas fa-envelope"></i> Contact
+                            </a>
+                            <button id="open-modal" class="bg-white text-blue-600 px-4 py-2 rounded-lg hover:bg-gray-200 transition-colors">
                                 <i class="fa-solid fa-right-to-bracket"></i> Log In
                             </button>
-                            <a href="profile.html" class="text-white hover:text-blue-200 px-3 py-2"><i class="fas fa-user"></i> Profile</a>
+                            <a href="profile.html" class="nav-link text-white hover:text-blue-200 px-3 py-2 transition-colors">
+                                <i class="fas fa-user"></i> Profile
+                            </a>
                         </div>
+            
+                        <!-- Mobile menu button -->
+                        <button id="menu-toggle" type="button" class="md:hidden text-white hover:text-gray-200 focus:outline-none">
+                            <i class="fas fa-bars text-2xl"></i>
+                        </button>
                     </div>
             
                     <!-- Mobile menu (hidden by default) -->
-                    <div id="mobile-menu" class="hidden md:hidden">
-                        <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                            <a href="index.html" class="block text-white hover:text-blue-200 px-3 py-2"><i class="fas fa-house"></i> Home</a>
-                            <a href="aboutus.html" class="block text-white hover:text-blue-200 px-3 py-2"><i class="fa-solid fa-address-card"></i> About</a>
-                            <a href="courses.html" class="block text-white hover:text-blue-200 px-3 py-2"><i class="fas fa-book"></i> Courses</a>
-                            <a href="contact.html" class="block text-white hover:text-blue-200 px-3 py-2"><i class="fas fa-envelope"></i> Contact</a>
-                            <a href="profile.html" class="block text-white hover:text-blue-200 px-3 py-2"><i class="fas fa-user"></i> Profile</a>
-                            <button id="mobile-open-modal" class="w-full text-left bg-white text-blue-600 px-4 py-2 rounded-lg hover:bg-gray-200 mt-2">
+                    <div id="mobile-menu" class="hidden md:hidden pb-4">
+                        <div class="flex flex-col space-y-2">
+                            <a href="index.html" class="mobile-nav-link text-white hover:text-blue-200 px-3 py-2 transition-colors">
+                                <i class="fas fa-house"></i> Home
+                            </a>
+                            <a href="aboutus.html" class="mobile-nav-link text-white hover:text-blue-200 px-3 py-2 transition-colors">
+                                <i class="fa-solid fa-address-card"></i> About
+                            </a>
+                            <a href="courses.html" class="mobile-nav-link text-white hover:text-blue-200 px-3 py-2 transition-colors">
+                                <i class="fas fa-book"></i> Courses
+                            </a>
+                            <a href="contact.html" class="mobile-nav-link text-white hover:text-blue-200 px-3 py-2 transition-colors">
+                                <i class="fas fa-envelope"></i> Contact
+                            </a>
+                            <a href="profile.html" class="mobile-nav-link text-white hover:text-blue-200 px-3 py-2 transition-colors">
+                                <i class="fas fa-user"></i> Profile
+                            </a>
+                            <button id="mobile-open-modal" class="w-full text-left bg-white text-blue-600 px-4 py-2 rounded-lg hover:bg-gray-200 transition-colors">
                                 <i class="fa-solid fa-right-to-bracket"></i> Log In
                             </button>
                         </div>
@@ -89,48 +116,76 @@
                 </div>
             </nav>
             
+            <!-- Add padding to body to account for fixed navbar -->
+            <style>
+                body {
+                    padding-top: 64px; /* Height of navbar */
+                }
+                .nav-link, .mobile-nav-link {
+                    display: flex;
+                    align-items: center;
+                    gap: 0.5rem;
+                }
+                #mobile-menu {
+                    transition: all 0.3s ease-in-out;
+                }
+                .hero-section {
+                    margin-top: -64px; /* Offset the padding for hero section */
+                }
+                @media (max-width: 768px) {
+                    .mobile-menu-open {
+                        padding-top: 0;
+                    }
+                }
+            </style>
+            
             <script>
-                // Toggle mobile menu
-                const menuToggle = document.getElementById('menu-toggle');
-                const mobileMenu = document.getElementById('mobile-menu');
+                // Navbar functionality
+                document.addEventListener('DOMContentLoaded', function() {
+                    const menuToggle = document.getElementById('menu-toggle');
+                    const mobileMenu = document.getElementById('mobile-menu');
+                    const navbar = document.querySelector('nav');
             
-                menuToggle.addEventListener('click', () => {
-                    mobileMenu.classList.toggle('hidden');
-                });
+                    // Toggle mobile menu
+                    menuToggle.addEventListener('click', () => {
+                        mobileMenu.classList.toggle('hidden');
+                    });
             
-                // Modal functionality
-                const openModalBtn = document.getElementById('open-modal');
-                const mobileOpenModalBtn = document.getElementById('mobile-open-modal');
-                const closeModalBtn = document.getElementById('close-modal');
+                    // Close mobile menu when clicking outside
+                    document.addEventListener('click', (e) => {
+                        if (!navbar.contains(e.target)) {
+                            mobileMenu.classList.add('hidden');
+                        }
+                    });
             
-                function openModal() {
-                    modal.classList.remove('hidden');
-                }
-            
-                function closeModal() {
-                    modal.classList.add('hidden');
-                }
-            
-                openModalBtn.addEventListener('click', openModal);
-                mobileOpenModalBtn.addEventListener('click', openModal);
-                closeModalBtn.addEventListener('click', closeModal);
-            
-                // Close modal when clicking outside
-                modal.addEventListener('click', (e) => {
-                    if (e.target === modal) {
-                        closeModal();
-                    }
-                });
-            
-                // Close mobile menu when clicking outside
-                document.addEventListener('click', (e) => {
-                    if (!menuToggle.contains(e.target) && !mobileMenu.contains(e.target)) {
-                        mobileMenu.classList.add('hidden');
-                    }
+                    // Handle scroll behavior
+                    let lastScroll = 0;
+                    window.addEventListener('scroll', () => {
+                        const currentScroll = window.pageYOffset;
+                        
+                        if (currentScroll <= 0) {
+                            navbar.style.transform = 'translateY(0)';
+                            return;
+                        }
+                        
+                        if (currentScroll > lastScroll && !mobileMenu.classList.contains('hidden')) {
+                            mobileMenu.classList.add('hidden');
+                        }
+                        
+                        if (currentScroll > lastScroll && currentScroll > 64) {
+                            navbar.style.transform = 'translateY(-100%)';
+                        } else {
+                            navbar.style.transform = 'translateY(0)';
+                        }
+                        
+                        lastScroll = currentScroll;
+                    });
+
+                    // Add smooth transition
+                    navbar.style.transition = 'transform 0.3s ease-in-out';
                 });
             </script>
             
-
             <!-- Hero Content -->
             <div class="container mx-auto h-full flex items-center px-6">
                 <div class="max-w-2xl text-white">
