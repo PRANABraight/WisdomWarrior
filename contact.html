@@ -288,99 +288,215 @@
         </div>
     </div>
 
+ 
     <!-- Footer with updated styling -->
     <footer class="bg-blue-600 text-white py-12">
-    <div class="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 text-center md:text-left">
-        <!-- About Section -->
-        <div>
-            <h4 class="text-lg font-semibold mb-2">About WisdomWarrior</h4>
-            <p class="text-sm">
-                WisdomWarrior is dedicated to empowering learners with the knowledge and skills they need to thrive in a rapidly changing world.
-                Join us and unlock your potential today!
-            </p>
+        <div class="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 text-center md:text-left">
+            <!-- About Section -->
+            <div>
+                <h4 class="text-lg font-semibold mb-2">About WisdomWarrior</h4>
+                <p class="text-sm">
+                    WisdomWarrior is dedicated to empowering learners with the knowledge and skills they need to thrive in a rapidly changing world.
+                    Join us and unlock your potential today!
+                </p>
+            </div>
+  
+            <!-- Navigation Links -->
+            <div>
+                <h4 class="text-lg font-semibold mb-2">Quick Links</h4>
+                <ul>
+                    <li><a href="index.html" class="text-sm hover:underline">Home</a></li>
+                    <li><a href="aboutus.html" class="text-sm hover:underline">About</a></li>
+                    <li><a href="courses.html" class="text-sm hover:underline">Courses</a></li>
+                    <li><a href="contact.html" class="text-sm hover:underline">Contact</a></li>
+                </ul>
+            </div>
+            
+            <!-- Contact Info -->
+            <div>
+                <h4 class="text-lg font-semibold mb-2">Contact Us</h4>
+                <p class="text-sm">Email: <a href="mailto:support@wisdomwarrior.com" class="hover:underline">support@wisdomwarrior.com</a></p>
+                <p class="text-sm">Phone: +91 23456 78901</p>
+                <div class="mt-3 ml-1 flex justify-center md:justify-start space-x-4">
+                    <a href="https://www.instagram.com/pranabrai1/" target="_blank" class="text-white hover:text-gray-300"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com/in/pranab-rai-924b6731b/" target="_blank" class="text-white hover:text-gray-300"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            
         </div>
-
-        <!-- Navigation Links -->
-        <div>
-            <h4 class="text-lg font-semibold mb-2">Quick Links</h4>
-            <ul>
-                <li><a href="index.html" class="text-sm hover:underline">Home</a></li>
-                <li><a href="aboutus.html" class="text-sm hover:underline">About</a></li>
-                <li><a href="courses.html" class="text-sm hover:underline">Courses</a></li>
-                <li><a href="contact.html" class="text-sm hover:underline">Contact</a></li>
-            </ul>
+        
+        <!-- Footer Bottom -->
+        <div class="mt-6 border-t border-gray-400 pt-3 text-sm text-center">
+            <p>&copy; 2024 WisdomWarrior. All rights reserved. | Designed with <i class="fa-solid fa-heart"></i> by PRANAB RAI</p>
         </div>
+    </footer>
 
-        <!-- Contact Info -->
-        <div>
-            <h4 class="text-lg font-semibold mb-2">Contact Us</h4>
-            <p class="text-sm">Email: <a href="mailto:support@wisdomwarrior.com" class="hover:underline">support@wisdomwarrior.com</a></p>
-            <p class="text-sm">Phone: +91 23456 78901</p>
-            <div class="mt-3 flex justify-center md:justify-start space-x-4">
-                <a href="https://www.instagram.com/pranabrai1/" target="_blank" class="text-white hover:text-gray-300"><i class="fab fa-instagram"></i></a>
-                <a href="https://www.linkedin.com/in/pranab-rai-924b6731b/" target="_blank" class="text-white hover:text-gray-300"><i class="fab fa-linkedin-in"></i></a>
+    <!-- Login Modal -->
+    <div id="authentication-modal" class="hidden fixed inset-0 z-50 flex justify-center items-center bg-gray-900 bg-opacity-50">
+        <div class="bg-white rounded-xl shadow-lg w-full max-w-md mx-4 transform transition-all">
+            <!-- Modal Header -->
+            <div class="bg-gradient-to-r from-blue-600 to-blue-700 p-6 rounded-t-xl">
+                <div class="flex justify-between items-center">
+                    <div>
+                        <h3 class="text-xl font-semibold text-white">Sign in to WisdomWarrior</h3>
+                        <p class="text-blue-100 text-sm mt-1">Continue your learning journey</p>
+                    </div>
+                    <button id="close-modal" class="text-white hover:text-gray-200 transition-colors">
+                        <i class="fas fa-times text-xl"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Modal Body -->
+            <div class="p-6">
+                <form class="space-y-4">
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-gray-700">Email Address</label>
+                        <div class="mt-1 relative rounded-md shadow-sm">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <i class="fas fa-envelope text-gray-400"></i>
+                            </div>
+                            <input type="email" id="email" 
+                                class="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" 
+                                placeholder="name@company.com" required>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
+                        <div class="mt-1 relative rounded-md shadow-sm">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <i class="fas fa-lock text-gray-400"></i>
+                            </div>
+                            <input type="password" id="password" 
+                                class="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" 
+                                placeholder="••••••••" required>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center">
+                            <input type="checkbox" id="remember" 
+                                class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded">
+                            <label for="remember" class="ml-2 text-sm text-gray-600">Remember me</label>
+                        </div>
+                        <a href="index.html" class="text-sm text-blue-600 hover:text-blue-500">Forgot password?</a>
+                    </div>
+
+                    <button type="submit" 
+                        class="w-full bg-blue-600 text-white py-2.5 rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors">
+                        Sign in
+                    </button>
+
+                    <div class="relative my-6">
+                        <div class="absolute inset-0 flex items-center">
+                            <div class="w-full border-t border-gray-300"></div>
+                        </div>
+                        <div class="relative flex justify-center text-sm">
+                            <!-- <span class="px-2 bg-white text-gray-500">Or continue with</span> -->
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-3">
+                        <!-- <button type="button" 
+                            class="flex justify-center items-center px-4 py-2 border border-gray-300 rounded-lg shadow-sm bg-white text-sm font-medium text-gray-700 hover:bg-gray-50">
+                            <i class="fab fa-google text-red-500 mr-2"></i>
+                            Google
+                        </button>
+                        <button type="button"
+                            class="flex justify-center items-center px-4 py-2 border border-gray-300 rounded-lg shadow-sm bg-white text-sm font-medium text-gray-700 hover:bg-gray-50">
+                            <i class="fab fa-facebook-f text-blue-600 mr-2"></i>
+                            Facebook
+                        </button> -->
+                    </div>
+
+                    <p class="mt-4 text-sm text-center text-gray-600">
+                        Not registered? 
+                        <a href="registration.html" class="font-medium text-blue-600 hover:text-blue-500">
+                            Create an account
+                        </a>
+                    </p>
+                </form>
             </div>
         </div>
-
     </div>
 
-    <!-- Footer Bottom -->
-    <div class="mt-6 border-t border-gray-400 pt-3 text-sm text-center">
-        <p>&copy; 2024 WisdomWarrior. All rights reserved. | Designed with <i class="fa-solid fa-heart"></i> by PRANAB RAI</p>
-    </div>
-</footer>
-
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
+    <script>
+        // Menu Toggle for Mobile
+        document.getElementById('menu-toggle').addEventListener('click', function () {
+            const menu = document.getElementById('menu');
+            menu.classList.toggle('hidden');
+        });
+    
+        // Modal Toggle
         const modal = document.getElementById('authentication-modal');
-        const openModalBtn = document.getElementById('open-modal');
-        const mobileOpenModalBtn = document.getElementById('mobile-open-modal');
-        const closeModalBtn = document.getElementById('close-modal');
-
-        function openModal() {
+        document.getElementById('open-modal').addEventListener('click', function () {
             modal.classList.remove('hidden');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeModal() {
+        });
+    
+        document.getElementById('close-modal').addEventListener('click', function () {
             modal.classList.add('hidden');
-            document.body.style.overflow = '';
-        }
-
-        openModalBtn.addEventListener('click', function(e) {
-            e.preventDefault();
-            openModal();
         });
 
-        if (mobileOpenModalBtn) {
-            mobileOpenModalBtn.addEventListener('click', function(e) {
+        // Update the existing JavaScript with new modal functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const loginModal = document.getElementById('login-modal');
+            const openLoginBtn = document.getElementById('open-modal');
+            const mobileOpenLoginBtn = document.getElementById('mobile-open-modal');
+            const closeLoginBtn = document.getElementById('close-login-modal');
+            const loginForm = document.getElementById('login-form');
+
+            function openLoginModal() {
+                loginModal.classList.remove('hidden');
+                document.body.style.overflow = 'hidden'; // Prevent scrolling when modal is open
+            }
+
+            function closeLoginModal() {
+                loginModal.classList.add('hidden');
+                document.body.style.overflow = ''; // Restore scrolling
+            }
+
+            // Open modal handlers
+            openLoginBtn.addEventListener('click', function(e) {
                 e.preventDefault();
-                openModal();
+                openLoginModal();
             });
-        }
 
-        closeModalBtn.addEventListener('click', closeModal);
+            mobileOpenLoginBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                openLoginModal();
+            });
 
-        // Close modal when clicking outside
-        modal.addEventListener('click', (e) => {
-            if (e.target === modal) {
-                closeModal();
-            }
+            // Close modal handlers
+            closeLoginBtn.addEventListener('click', closeLoginModal);
+            
+            // Close when clicking outside modal
+            loginModal.addEventListener('click', function(e) {
+                if (e.target === loginModal) {
+                    closeLoginModal();
+                }
+            });
+
+            // Handle form submission
+            loginForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                // Add your login logic here
+                const email = document.getElementById('login-email').value;
+                const password = document.getElementById('login-password').value;
+                
+                // Example login logic
+                console.log('Login attempt:', { email, password });
+                // Add your authentication logic here
+            });
+
+            // Close modal on escape key
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && !loginModal.classList.contains('hidden')) {
+                    closeLoginModal();
+                }
+            });
         });
-
-        // Close modal on escape key
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
-                closeModal();
-            }
-        });
-
-        // Prevent modal close when clicking inside
-        modal.querySelector('.bg-white').addEventListener('click', (e) => {
-            e.stopPropagation();
-        });
-    });
-</script>
+    </script>
 
 </body>
 </html>
