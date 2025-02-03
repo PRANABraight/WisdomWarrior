@@ -49,7 +49,7 @@
         
           <body class="bg-gradient-to-br from-blue-50 to-blue-100 text-gray-800">
             <!-- Navigation Bar -->
-            <nav class="bg-blue-600 shadow-md text-white fixed w-full z-50 top-0">
+            <nav class="bg-blue-600 shadow-md text-white fixed w-full z-50 m-0">
                 <div class="container mx-auto px-4">
                     <div class="flex justify-between items-center h-16">
                         <!-- Brand/Logo -->
@@ -119,7 +119,7 @@
             <!-- Add padding to body to account for fixed navbar -->
             <style>
                 body {
-                    padding-top: 64px; /* Height of navbar */
+                    padding-top: 4rem;
                 }
                 .nav-link, .mobile-nav-link {
                     display: flex;
@@ -128,14 +128,6 @@
                 }
                 #mobile-menu {
                     transition: all 0.3s ease-in-out;
-                }
-                .hero-section {
-                    margin-top: -64px; /* Offset the padding for hero section */
-                }
-                @media (max-width: 768px) {
-                    .mobile-menu-open {
-                        padding-top: 0;
-                    }
                 }
             </style>
             
@@ -172,7 +164,7 @@
                             mobileMenu.classList.add('hidden');
                         }
                         
-                        if (currentScroll > lastScroll && currentScroll > 64) {
+                        if (currentScroll > lastScroll && currentScroll > 100) {
                             navbar.style.transform = 'translateY(-100%)';
                         } else {
                             navbar.style.transform = 'translateY(0)';
@@ -180,9 +172,6 @@
                         
                         lastScroll = currentScroll;
                     });
-
-                    // Add smooth transition
-                    navbar.style.transition = 'transform 0.3s ease-in-out';
                 });
             </script>
             
@@ -202,7 +191,7 @@
 
     <!-- Featured Courses Section -->
     <main class="container mx-auto px-6 py-16">
-        <h2 class="text-3xl font-bold text-center mb-12 ">Featured Courses</h2>
+        <h2 class="text-3xl font-bold text-center mb-12 text-white">Featured Courses</h2>
         <div class="grid md:grid-cols-3 gap-8">
             <!-- Web Development Card -->
             <div class="course-card bg-white rounded-xl shadow-lg overflow-hidden">
